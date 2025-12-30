@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Surveillance Zone Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1> Smart Surveillance Zone Designer</h1>
+                <p class="subtitle">Interactive Computational Geometry Application</p>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <!-- Instructions Panel -->
+                <div class="panel">
+                    <h3> Instructions</h3>
+                    <ul class="instructions">
+                        <li><strong>Left Click:</strong> Place sensor</li>
+                        <li><strong>Right Click:</strong> Remove sensor</li>
+                        <li>Min 2 sensors needed for beams</li>
+                        <li>Min 3 intersections for secure zone</li>
+                    </ul>
+                </div>
+
+                <!-- Statistics Panel -->
+                <div class="panel">
+                    <h3> Statistics</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Sensors:</span>
+                        <span class="stat-value" id="sensorCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Laser Beams:</span>
+                        <span class="stat-value" id="beamCount">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Intersections:</span>
+                        <span class="stat-value" id="intersectionCount">0</span>
+                    </div>
+                    <div class="stat-item highlighted">
+                        <span class="stat-label">Secure Area:</span>
+                        <span class="stat-value" id="secureArea">0</span>
+                        <span class="stat-unit">sq units</span>
+                    </div>
+                </div>
+
+                <!-- Algorithm Info Panel -->
+                <div class="panel">
+                    <h3> Algorithms Used</h3>
+                    <div class="algorithm-item">
+                        <div class="algo-name">Line Intersection</div>
+                        <div class="algo-complexity">O(1) per pair</div>
+                        <div class="algo-desc">Parametric line equations</div>
+                    </div>
+                    <div class="algorithm-item">
+                        <div class="algo-name">Convex Hull</div>
+                        <div class="algo-complexity">O(n log n)</div>
+                        <div class="algo-desc">Graham Scan algorithm</div>
+                    </div>
+                    <div class="algorithm-item">
+                        <div class="algo-name">Area Calculation</div>
+                        <div class="algo-complexity">O(n)</div>
+                        <div class="algo-desc">Shoelace formula</div>
+                    </div>
+                </div>
+
+                <!-- Controls Panel -->
+                <div class="panel">
+                    <h3> Controls</h3>
+                    <div class="controls">
+                        <label class="toggle-control">
+                            <input type="checkbox" id="toggleBeams" checked>
+                            <span>Show Laser Beams</span>
+                        </label>
+                        <label class="toggle-control">
+                            <input type="checkbox" id="toggleIntersections" checked>
+                            <span>Show Intersections</span>
+                        </label>
+                        <label class="toggle-control">
+                            <input type="checkbox" id="toggleSecureZone" checked>
+                            <span>Show Secure Zone</span>
+                        </label>
+                        <label class="toggle-control">
+                            <input type="checkbox" id="toggleGrid">
+                            <span>Show Grid</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="panel">
+                    <h3> Actions</h3>
+                    <div class="action-buttons">
+                        <button class="btn btn--primary" id="clearBtn"> Clear All</button>
+                        <button class="btn btn--secondary" id="loadSampleBtn"> Load Sample</button>
+                        <button class="btn btn--secondary" id="exportBtn"> Export Data</button>
+                        <label class="btn btn--outline">
+                             Upload Background
+                            <input type="file" id="uploadBg" accept="image/*" style="display: none;">
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Sensor List Panel -->
+                <div class="panel">
+                    <h3 Sensor Coordinates</h3>
+                    <div id="sensorList" class="sensor-list"></div>
+                </div>
+            </aside>
+
+            <!-- Canvas Area -->
+            <div class="canvas-container">
+                <div class="canvas-wrapper">
+                    <canvas id="surveillanceCanvas" width="800" height="600"></canvas>
+                    <div id="statusMessage" class="status-message"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Smart Surveillance Zone Designer | Computational Geometry Application | FAT Assignment</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
